@@ -3,31 +3,71 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - get_menu_items
+  - check_opening_hours
+  - place_order
+  - affirm_checkout
+  - deny_checkout
+  - provide_address
+
+entities:
+  - date
+  - order_items
+  - delivery_address
+  - additional_requests
+
+slots:
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+
+  order_items:
+    type: list
+    mappings:
+      - type: from_entity
+        entity: order_items
+
+  additional_requests:
+    type: list
+    mappings:
+      - type: from_entity
+        entity: additional_requests
+
+  checkout_confirmation:
+    type: bool
+    mappings:
+      - type: from_intent
+        value: true
+        intent: affirm_checkout
+      - type: from_intent
+        value: false
+        intent: deny_checkout
+
+  delivery_address:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: delivery_address
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  - text: "Hey! How can I assist you?"
   utter_goodbye:
   - text: "Bye"
+  utter_confirm_checkout:
+  - text: "Would you like to confirm your order?"
+  utter_order_cancelled:
+  - text: "I cancelled your order. Feel free to place a new order if you wish."
+  utter_ask_delivery_address:
+  - text: "Your order is confirmed. Where should we deliver your order?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+actions:
+  - action_get_menu_items
+  - action_check_opening_hours
+  - action_place_order
+  - action_confirm_delivery
 
 session_config:
   session_expiration_time: 60

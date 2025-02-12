@@ -9,83 +9,85 @@ nlu:
     - hello there
     - good morning
     - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
     - good afternoon
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
+    - see you later
     - good night
     - bye
     - goodbye
     - have a nice day
-    - see you around
-    - bye bye
-    - see you later
 
-- intent: affirm
+- intent: get_menu_items
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - Show me the menu
+    - What dishes do you have?
+    - What can I choose from?
+    - List all food options
 
-- intent: deny
+- intent: check_opening_hours
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Is restaurant open on [Monday at 20:00](date)?
+    - Is restaurant open [now](date)?
+    - What are the working hours on [Thursday](date)?
+    - Is restaurant open [today](date)?
+    - Will restaurant be opened [tomorrow at 15 pm](date)?
+    - Is restaurant opened on [Sunday at noon](date)?
+    - Do you work on [February 14th at midnight](date)?
 
-- intent: mood_great
+- intent: place_order
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - I'd like to order a [lasagne](order_items) [without onions](additional_requests)
+    - Can I have a [pizza](order_items) [with extra cheese](additional_requests)?
+    - Give me a [burger](order_items) and a [spaghetti carbonara](order_items), please
+    - I need a [pizza](order_items), [lasagne](order_items), and [hot-dog](order_items)
+    - I want a [tiramisu](order_items) [without cocoa powder](additional_requests)
+    - Order a [hotdog](order_items) [with extra mustard](additional_requests) and a [burger](order_items)
+    - Could you get me a [spaghetti carbonara](order_items) and a [pizza](order_items)?
+    - One [lasagne](order_items) and a [tiramisu](order_items), please
+    - I will take [two burgers](order_items) [with no pickles](additional_requests)
+    - I'd like a [hot-dog](order_items) and a [tiramisu](order_items) [with extra cream](additional_requests)
+    - Please get me a [pizza](order_items) and a [spaghetti carbonara](order_items) [without bacon](additional_requests)
+    - A [lasagne](order_items) and [tiramisu](order_items) for dessert
+    - I want a [burger](order_items) [without lettuce](additional_requests) and a [hot-dog](order_items)
+    - Can I have a [pizza](order_items), a [hotdog](order_items), and a [burger](order_items) [with no mayo](additional_requests)?
+    - I'd like [spaghetti carbonara](order_items) [extra cheesy](additional_requests)
+    - One [hotdog](order_items) [with mustard](additional_requests) and a [pizza](order_items) [without olives](additional_requests)
+    - Get me a [burger](order_items) and a [hotdog](order_items) [without mustard](additional_requests)
+    - I want [lasagne](order_items) and [spaghetti carbonara](order_items) [extra creamy](additional_requests)
+    - A [pizza](order_items) [with mushrooms](additional_requests) and a [burger](order_items) [without ketchup](additional_requests)
+    - Give me a [tiramisu](order_items) and a [hot-dog](order_items) [with extra mustard](additional_requests)
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
 
-- intent: bot_challenge
+- intent: affirm_checkout
+  examples: | 
+    - Yes
+    - Yes please
+    - Yup
+    - Sure
+    - Exactly
+    - Absolutely
+    - Perfect
+
+- intent: deny_checkout
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - No
+    - That's wrong
+    - Never
+    - Deny
+    - Cancel
+    - Go back
+    - Go away
+
+- intent: provide_address
+  examples: |
+    - Deliver to [123 Main Street](delivery_address)
+    - My address is [456 Elm Ave](delivery_address)
+    - Ship to [789 Oak Road](delivery_address)
+    - Send it to [22 Baker Street](delivery_address)
+    
+
+    
+  
+    
